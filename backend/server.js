@@ -20,7 +20,9 @@ const app = express()
 
 connectDB()
 
-app.use(cors())
+app.use(cors({
+  origin: ["https://tv-reporter.onrender.com"]
+}))
 app.use(express.json())
 
 const limiter = rateLimit({
