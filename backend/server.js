@@ -20,9 +20,16 @@ const app = express()
 
 connectDB()
 
-app.use(cors({
-  origin: ["https://tv-reporter.onrender.com"]
-}))
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://tv-reporter.netlify.app"
+    ],
+    methods: ["GET","POST","PUT","DELETE"],
+    credentials: true
+  })
+)
 app.use(express.json())
 
 const limiter = rateLimit({
